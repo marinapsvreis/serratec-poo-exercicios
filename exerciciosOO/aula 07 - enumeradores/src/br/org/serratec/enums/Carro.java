@@ -3,9 +3,7 @@ package br.org.serratec.enums;
 import java.time.LocalDate;
 
 public class Carro extends Veiculo implements Oficina {
-	private String categoria;
-	private static double valorTotalServicos = 0.0;
-	
+	private String categoria;	
 
 	public Carro(String modelo, LocalDate dataConserto, Proprietario proprietario,
 			String categoria) {
@@ -24,7 +22,7 @@ public class Carro extends Veiculo implements Oficina {
 
 	@Override
 	public double lavarVeiculo() {
-		setServicosSelecionados(getServicosSelecionados() + "("+ TipoServico.LAVAGEM.getValorPorServico()  +")"+" | ");
+		setServicosSelecionados(getServicosSelecionados() + TipoServico.LAVAGEM.getDescricao() +"("+ TipoServico.LAVAGEM.getValorPorServico()  +")"+" | ");
 		return TipoServico.LAVAGEM.getValorPorServico();
 	}
 

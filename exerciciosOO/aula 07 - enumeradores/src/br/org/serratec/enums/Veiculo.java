@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public abstract class Veiculo {
 	protected String modelo;
-	protected static double valorCobrado = 0.0;
+	protected double valorCobrado = 0.0;
 	protected LocalDate dataConserto;
 	protected Proprietario proprietario;
 	private String servicosSelecionados = "";
@@ -20,10 +20,6 @@ public abstract class Veiculo {
 
 	public String getModelo() {
 		return modelo;
-	}
-
-	public static void setValorCobrado(double valorCobrado) {
-		Veiculo.valorCobrado = valorCobrado;
 	}
 
 	public double getValorCobrado() {
@@ -44,7 +40,7 @@ public abstract class Veiculo {
 
 	public String getServicosSelecionados() {
 		return servicosSelecionados;
-	}	
+	}
 
 	public String getDescontosAplicados() {
 		return descontosAplicados;
@@ -56,7 +52,12 @@ public abstract class Veiculo {
 
 	@Override
 	public String toString() {
-		return "Veiculo: " + modelo + "\nData Serviços: " + dataConserto.format(formatter) + "\n" + proprietario.toString();
+		return "Veiculo: " + modelo + "\nData Serviços: " + dataConserto.format(formatter) + "\n"
+				+ proprietario.toString();
+	}
+
+	public void addServico(double valorCobrado) {
+		this.valorCobrado += valorCobrado;
 	}
 
 }
